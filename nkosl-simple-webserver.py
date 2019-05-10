@@ -10,7 +10,7 @@ class SimpleRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         sys.stdout.flush()
         if self.path == '/crash':
                 os._exit(1337)
-        self.wfile.write('HTTP-1.0 200 Okay\r\n\r\nHere is your output for '+self.path)
+        self.wfile.write('HTTP/1.0 200 Okay\r\n\r\nHere is your output for '+self.path)
 
 def run(server_class=BaseHTTPServer.HTTPServer,
     handler_class=SimpleRequestHandler):
